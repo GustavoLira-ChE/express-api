@@ -30,6 +30,7 @@ app.get('/v1/explorers/:id', (req, res) => {
 //Create a POST entpoint to handle the creation of new explorers
 app.post('/v1/explorers', (req, res) => {
     console.log(`API explorers POST request ${new Date()}`)
+    console.log(`Client parameter ${req.body}`)
     const requestBody = req.body // Client parameters
     res.status(201).json({message: "Created"})
 });
@@ -38,6 +39,7 @@ app.post('/v1/explorers', (req, res) => {
 app.put('/v1/explorers/:id', (req, res) => {
     console.log(`API explorers PUT request ${new Date()}`)
     console.log(`Update explorer with id ${req.params.id}`)
+    console.log(`Client parameter ${req.body}`)
     const requestBody = req.body //client parameters
     res.status(200).json({message: "Updated!"})
 });
@@ -46,6 +48,7 @@ app.put('/v1/explorers/:id', (req, res) => {
 app.delete('/v1/explorers/:id', (req, res) => {
     console.log(`API explorers DELETE request ${new Date()}`)
     console.log(`Delete explorer with id ${req.params.id}`)
+    console.log(`Client parameter ${req.body}`)
     const requestBody = req.body //client parameters
     res.status(200).json({message: "Deleted"})
 });
