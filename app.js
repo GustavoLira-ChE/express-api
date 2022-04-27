@@ -42,6 +42,13 @@ app.put('/v1/explorers/:id', (req, res) => {
     res.status(200).json({message: "Updated!"})
 });
 
+//Create a DELETE entpoint to remove a explorer
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`API explorers DELETE request ${new Date()}`)
+    console.log(`Delete explorer with id ${req.params.id}`)
+    const requestBody = req.body //client parameters
+    res.status(200).json({message: "Deleted"})
+});
 
 //Initialize the app
 app.listen(port, () => {
