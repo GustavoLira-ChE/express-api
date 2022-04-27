@@ -10,7 +10,7 @@ app.use(express.json());
 
 //Routes
 //Methods: GET, POST, PUT, DELETE
-//create an entpoint to return a list of explorers
+//create a GET entpoint to return a list of explorers
 app.get('/v1/explorers', (req, res) => {
     console.log(`GET Explorers V1 API ${new Date()}`)
     const explorer1 = { id: 1, name: 'explorer1'}
@@ -19,12 +19,19 @@ app.get('/v1/explorers', (req, res) => {
     // HTTP CODE STATUS: 200
     res.status(200).json(explorers)
 });
-//Create an entpoint to return a explorer by ID
+//Create a GET entpoint to return a explorer by ID
 app.get('/v1/explorers/:id', (req, res) => {
     console.log(`API explorers GET request ${new Date()}`)
     console.log(`Getting explorer with id ${req.params.id}`)
     const explorer = {id: 1, name: 'Explorer1'}
     res.status(200).json(explorer)
+});
+
+//Create a POST entpoint to handle the creation of new explorers
+app.post('/v1/explorers', (req, res) => {
+    console.log(`API explorers POST request ${new Date()}`)
+    const requestBody = req.body // Client parameters
+    res.status(201).json({message: "Created"})
 });
 
 
